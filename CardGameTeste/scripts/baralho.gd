@@ -9,10 +9,16 @@ func _ready():
 
 func sistema_de_ataque():
 	print($c1.ataque)
+
+	var first_card_path = "c%s" % carta_ataque
+	var second_card_path = "c%s" % carta_defesa
+	
+	var first_card = get_node(first_card_path)
+	var second_card = get_node(second_card_path)
 		
-#	if "$c" + str(carta_ataque) + ".ataque" == "$c" + str(carta_defesa) + ".defesa":
-#		print("CARTAS EMPATARAM")
-#	if "$c" + str(carta_ataque) + ".ataque" > "$c" + str(carta_defesa) + ".defesa":
-#		print("ATAQUE VENCEU")
-#	else:
-#		print("DEFESA VENCEU")
+	if first_card.ataque == second_card.defesa:
+		print("CARTAS EMPATARAM")
+	elif first_card.ataque > second_card.defesa:
+		print("ATAQUE VENCEU")
+	else first_card.ataque == second_card.defesa:
+		print("DEFESA VENCEU")
